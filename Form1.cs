@@ -28,7 +28,11 @@ namespace SimpleCalculator
 
             txtb_mscal.Text += btn.Text;
 
-            if (string.IsNullOrEmpty(op))
+            if (!string.IsNullOrEmpty(op))
+            {
+                txtb_cal.Text = expression + txtb_mscal.Text;
+            }
+            else
             {
                 txtb_cal.Text = txtb_mscal.Text;
             }
@@ -70,7 +74,29 @@ namespace SimpleCalculator
             int num2 = int.Parse(txtb_mscal.Text);
             int result = 0;
 
-            
+            switch (op)
+            {
+                case "+":
+                    result = num1 + num2;
+                    break;
+
+                case "-":
+                    result = num1 - num2;
+                    break;
+
+                case "*":
+                    result = num1 * num2;
+                    break;
+
+                case "/":
+                    if (num2 == 0)
+                    {
+                        MessageBox.Show("0으로 나눌 수 없음");
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
 
             txtb_cal.Text = expression + num2.ToString() + "=" + result.ToString();
             txtb_mscal.Text = result.ToString();
@@ -81,17 +107,35 @@ namespace SimpleCalculator
 
         private void btn_minus_Click(object sender, EventArgs e)
         {
-            
+            num1 = int.Parse(txtb_mscal.Text);
+            op = "-";
+
+            expression = txtb_mscal.Text + "-";
+            txtb_cal.Text = expression;
+
+            isNewNumber = true;
         }
 
         private void btn_times_Click(object sender, EventArgs e)
         {
-            
+            num1 = int.Parse(txtb_mscal.Text);
+            op = "*";
+
+            expression = txtb_mscal.Text + "×";
+            txtb_cal.Text = expression;
+
+            isNewNumber = true;
         }
 
         private void btn_division_Click(object sender, EventArgs e)
         {
-            
+            num1 = int.Parse(txtb_mscal.Text);
+            op = "/";
+
+            expression = txtb_mscal.Text + "÷";
+            txtb_cal.Text = expression;
+
+            isNewNumber = true;
         }
     }
 }
