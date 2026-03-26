@@ -51,15 +51,17 @@
             btn_equal = new Button();
             btn_0 = new Button();
             btn_pm = new Button();
+            btn_leftParen = new Button();
+            btn_rightParen = new Button();
             SuspendLayout();
             // 
             // lbl1
             // 
             lbl1.AutoSize = true;
-            lbl1.Font = new Font("Segoe Script", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl1.Location = new Point(55, 62);
+            lbl1.Font = new Font("Stencil", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl1.Location = new Point(33, 58);
             lbl1.Name = "lbl1";
-            lbl1.Size = new Size(375, 60);
+            lbl1.Size = new Size(427, 47);
             lbl1.TabIndex = 0;
             lbl1.Text = "Simple Calculator";
             // 
@@ -81,7 +83,7 @@
             // btn_CE
             // 
             btn_CE.BackColor = Color.Orange;
-            btn_CE.Font = new Font("맑은 고딕", 10F);
+            btn_CE.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_CE.Location = new Point(61, 221);
             btn_CE.Name = "btn_CE";
             btn_CE.Size = new Size(85, 50);
@@ -93,7 +95,7 @@
             // btn_C
             // 
             btn_C.BackColor = Color.Orange;
-            btn_C.Font = new Font("맑은 고딕", 10F);
+            btn_C.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_C.Location = new Point(152, 221);
             btn_C.Name = "btn_C";
             btn_C.Size = new Size(85, 50);
@@ -105,7 +107,7 @@
             // btn_del
             // 
             btn_del.BackColor = Color.Orange;
-            btn_del.Font = new Font("맑은 고딕", 10F);
+            btn_del.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_del.Location = new Point(243, 221);
             btn_del.Name = "btn_del";
             btn_del.Size = new Size(85, 50);
@@ -117,7 +119,7 @@
             // btn_division
             // 
             btn_division.BackColor = Color.DarkKhaki;
-            btn_division.Font = new Font("맑은 고딕", 10F);
+            btn_division.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_division.Location = new Point(334, 221);
             btn_division.Name = "btn_division";
             btn_division.Size = new Size(85, 50);
@@ -129,7 +131,7 @@
             // btn_9
             // 
             btn_9.BackColor = Color.PowderBlue;
-            btn_9.Font = new Font("맑은 고딕", 10F);
+            btn_9.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_9.Location = new Point(243, 277);
             btn_9.Name = "btn_9";
             btn_9.Size = new Size(85, 50);
@@ -141,7 +143,7 @@
             // btn_times
             // 
             btn_times.BackColor = Color.DarkKhaki;
-            btn_times.Font = new Font("맑은 고딕", 10F);
+            btn_times.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_times.Location = new Point(334, 277);
             btn_times.Name = "btn_times";
             btn_times.Size = new Size(85, 50);
@@ -153,7 +155,7 @@
             // btn_8
             // 
             btn_8.BackColor = Color.PowderBlue;
-            btn_8.Font = new Font("맑은 고딕", 10F);
+            btn_8.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_8.Location = new Point(152, 277);
             btn_8.Name = "btn_8";
             btn_8.Size = new Size(85, 50);
@@ -165,7 +167,7 @@
             // btn_7
             // 
             btn_7.BackColor = Color.PowderBlue;
-            btn_7.Font = new Font("맑은 고딕", 10F);
+            btn_7.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_7.Location = new Point(61, 277);
             btn_7.Name = "btn_7";
             btn_7.Size = new Size(85, 50);
@@ -177,7 +179,7 @@
             // btn_6
             // 
             btn_6.BackColor = Color.PowderBlue;
-            btn_6.Font = new Font("맑은 고딕", 10F);
+            btn_6.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_6.ImageAlign = ContentAlignment.MiddleRight;
             btn_6.Location = new Point(243, 333);
             btn_6.Name = "btn_6";
@@ -190,7 +192,7 @@
             // btn_minus
             // 
             btn_minus.BackColor = Color.DarkKhaki;
-            btn_minus.Font = new Font("맑은 고딕", 10F);
+            btn_minus.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_minus.Location = new Point(334, 333);
             btn_minus.Name = "btn_minus";
             btn_minus.Size = new Size(85, 50);
@@ -202,7 +204,7 @@
             // btn_5
             // 
             btn_5.BackColor = Color.PowderBlue;
-            btn_5.Font = new Font("맑은 고딕", 10F);
+            btn_5.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_5.Location = new Point(152, 333);
             btn_5.Name = "btn_5";
             btn_5.Size = new Size(85, 50);
@@ -214,7 +216,7 @@
             // btn_4
             // 
             btn_4.BackColor = Color.PowderBlue;
-            btn_4.Font = new Font("맑은 고딕", 10F);
+            btn_4.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_4.Location = new Point(61, 333);
             btn_4.Name = "btn_4";
             btn_4.Size = new Size(85, 50);
@@ -226,7 +228,7 @@
             // btn_3
             // 
             btn_3.BackColor = Color.PowderBlue;
-            btn_3.Font = new Font("맑은 고딕", 10F);
+            btn_3.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_3.Location = new Point(243, 389);
             btn_3.Name = "btn_3";
             btn_3.Size = new Size(85, 50);
@@ -238,7 +240,7 @@
             // btn_plus
             // 
             btn_plus.BackColor = Color.DarkKhaki;
-            btn_plus.Font = new Font("맑은 고딕", 10F);
+            btn_plus.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_plus.Location = new Point(334, 389);
             btn_plus.Name = "btn_plus";
             btn_plus.Size = new Size(85, 50);
@@ -250,7 +252,7 @@
             // btn_2
             // 
             btn_2.BackColor = Color.PowderBlue;
-            btn_2.Font = new Font("맑은 고딕", 10F);
+            btn_2.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_2.Location = new Point(152, 389);
             btn_2.Name = "btn_2";
             btn_2.Size = new Size(85, 50);
@@ -262,7 +264,7 @@
             // btn_1
             // 
             btn_1.BackColor = Color.PowderBlue;
-            btn_1.Font = new Font("맑은 고딕", 10F);
+            btn_1.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_1.Location = new Point(61, 389);
             btn_1.Name = "btn_1";
             btn_1.Size = new Size(85, 50);
@@ -274,7 +276,7 @@
             // btn_dot
             // 
             btn_dot.BackColor = Color.BurlyWood;
-            btn_dot.Font = new Font("맑은 고딕", 10F);
+            btn_dot.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_dot.Location = new Point(243, 445);
             btn_dot.Name = "btn_dot";
             btn_dot.Size = new Size(85, 50);
@@ -285,7 +287,7 @@
             // btn_equal
             // 
             btn_equal.BackColor = Color.DarkKhaki;
-            btn_equal.Font = new Font("맑은 고딕", 10F);
+            btn_equal.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_equal.Location = new Point(334, 445);
             btn_equal.Name = "btn_equal";
             btn_equal.Size = new Size(85, 50);
@@ -297,7 +299,7 @@
             // btn_0
             // 
             btn_0.BackColor = Color.PowderBlue;
-            btn_0.Font = new Font("맑은 고딕", 10F);
+            btn_0.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_0.Location = new Point(152, 445);
             btn_0.Name = "btn_0";
             btn_0.Size = new Size(85, 50);
@@ -309,7 +311,7 @@
             // btn_pm
             // 
             btn_pm.BackColor = Color.BurlyWood;
-            btn_pm.Font = new Font("맑은 고딕", 10F);
+            btn_pm.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
             btn_pm.Location = new Point(61, 445);
             btn_pm.Name = "btn_pm";
             btn_pm.Size = new Size(85, 50);
@@ -317,12 +319,38 @@
             btn_pm.Text = "+/-";
             btn_pm.UseVisualStyleBackColor = false;
             // 
+            // btn_leftParen
+            // 
+            btn_leftParen.BackColor = Color.DarkKhaki;
+            btn_leftParen.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
+            btn_leftParen.Location = new Point(243, 501);
+            btn_leftParen.Name = "btn_leftParen";
+            btn_leftParen.Size = new Size(85, 50);
+            btn_leftParen.TabIndex = 24;
+            btn_leftParen.Text = "(";
+            btn_leftParen.UseVisualStyleBackColor = false;
+            btn_leftParen.Click += btn_leftParen_Click;
+            // 
+            // btn_rightParen
+            // 
+            btn_rightParen.BackColor = Color.DarkKhaki;
+            btn_rightParen.Font = new Font("맑은 고딕", 10F, FontStyle.Bold);
+            btn_rightParen.Location = new Point(334, 501);
+            btn_rightParen.Name = "btn_rightParen";
+            btn_rightParen.Size = new Size(85, 50);
+            btn_rightParen.TabIndex = 23;
+            btn_rightParen.Text = ")";
+            btn_rightParen.UseVisualStyleBackColor = false;
+            btn_rightParen.Click += btn_rightParen_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
             ClientSize = new Size(483, 588);
+            Controls.Add(btn_leftParen);
+            Controls.Add(btn_rightParen);
             Controls.Add(btn_dot);
             Controls.Add(btn_equal);
             Controls.Add(btn_0);
@@ -347,8 +375,9 @@
             Controls.Add(txtb_cal);
             Controls.Add(lbl1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Simple Calculator";
             Load += Form1_Load;
+            KeyDown += Form1_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -378,5 +407,7 @@
         private Button btn_equal;
         private Button btn_0;
         private Button btn_pm;
+        private Button btn_leftParen;
+        private Button btn_rightParen;
     }
 }

@@ -1,3 +1,5 @@
+using System.Data;
+
 namespace SimpleCalculator
 {
     public partial class Form1 : Form
@@ -12,6 +14,12 @@ namespace SimpleCalculator
         {
             InitializeComponent();
             txtb_mscal.Text = "0";
+            this.KeyPreview = true;
+        }
+        private void Input(string value)
+        {
+            expression += value;
+            txtb_cal.Text = expression;
         }
         private void Number_Click(object sender, EventArgs e)
         {
@@ -37,6 +45,75 @@ namespace SimpleCalculator
                 txtb_cal.Text = txtb_mscal.Text;
             }
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            // 숫자 (상단 키보드)
+            if (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
+            {
+                string num = (e.KeyCode - Keys.D0).ToString();
+                Number_KeyInput(num);
+            }
+
+            // 숫자 (넘버패드)
+            if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
+            {
+                string num = (e.KeyCode - Keys.NumPad0).ToString();
+                Number_KeyInput(num);
+            }
+
+            if (e.KeyCode == Keys.Add) btn_plus.PerformClick();
+            if (e.KeyCode == Keys.Subtract) btn_minus.PerformClick();
+            if (e.KeyCode == Keys.Multiply) btn_times.PerformClick();
+            if (e.KeyCode == Keys.Divide) btn_division.PerformClick();
+
+            if (e.KeyCode == Keys.Enter) btn_equal.PerformClick();
+            if (e.KeyCode == Keys.Back) btn_del.PerformClick();
+
+            // 연산자
+            if (e.KeyCode == Keys.Add || (e.KeyCode == Keys.Oemplus && e.Shift))
+                btn_plus.PerformClick();
+
+            if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.OemMinus)
+                btn_minus.PerformClick();
+
+            if (e.KeyCode == Keys.Multiply)
+                btn_times.PerformClick();
+
+            if (e.KeyCode == Keys.Divide)
+                btn_division.PerformClick();
+
+            if (e.KeyCode == Keys.Enter)
+                btn_equal.PerformClick();
+
+            if (e.KeyCode == Keys.Back)
+                btn_del.PerformClick();
+
+            if (e.KeyCode == Keys.Delete)
+                btn_CE.PerformClick();
+            if (e.KeyCode == Keys.D9 && e.Shift) Input("(");
+            if (e.KeyCode == Keys.D0 && e.Shift) Input(")");
+        }
+
+        private void Number_KeyInput(string num)
+        {
+            if (isNewNumber)
+            {
+                txtb_mscal.Clear();
+                isNewNumber = false;
+            }
+
+            if (txtb_mscal.Text == "0")
+                txtb_mscal.Clear();
+
+            txtb_mscal.Text += num;
+
+            if (!string.IsNullOrEmpty(op))
+                txtb_cal.Text = expression + txtb_mscal.Text;
+            else
+                txtb_cal.Text = txtb_mscal.Text;
+        }
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -88,6 +165,7 @@ namespace SimpleCalculator
             isNewNumber = true;
         }
 
+
         private void btn_equal_Click(object sender, EventArgs e)
         {
             int num2 = int.Parse(txtb_mscal.Text);
@@ -120,8 +198,10 @@ namespace SimpleCalculator
             txtb_cal.Text = expression + num2.ToString() + "=" + result.ToString();
             txtb_mscal.Text = result.ToString();
 
+            num1 = result;
             op = "";
             expression = "";
+
         }
 
         private void btn_minus_Click(object sender, EventArgs e)
@@ -170,6 +250,21 @@ namespace SimpleCalculator
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_leftParen_Click(object sender, EventArgs e)
+        {
+            Input("(");
+        }
+
+        private void btn_rightParen_Click(object sender, EventArgs e)
+        {
+            Input(")");
         }
     }
 }
