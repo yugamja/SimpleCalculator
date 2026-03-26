@@ -2,9 +2,36 @@ namespace SimpleCalculator
 {
     public partial class Form1 : Form
     {
+        //전역 변수
+        int num1 = 0;       //처음 숫자
+        string op = "";
+        bool isNewNumber = false;  // txtb_mscal) 다음 입력이 새 숫자인지
+        string expression = "";
+
         public Form1()
         {
             InitializeComponent();
+            txtb_mscal.Text = "0";
+        }
+        private void Number_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            if (isNewNumber)
+            {
+                txtb_mscal.Clear();
+                isNewNumber = false;
+            }
+
+            if (txtb_mscal.Text == "0")
+                txtb_mscal.Clear();
+
+            txtb_mscal.Text += btn.Text;
+
+            if (string.IsNullOrEmpty(op))
+            {
+                txtb_cal.Text = txtb_mscal.Text;
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -25,6 +52,46 @@ namespace SimpleCalculator
         private void button12_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_plus_Click(object sender, EventArgs e)
+        {
+            num1 = int.Parse(txtb_mscal.Text);
+            op = "+";
+
+            expression = txtb_mscal.Text + "+";
+            txtb_cal.Text = expression;
+
+            isNewNumber = true;
+        }
+
+        private void btn_equal_Click(object sender, EventArgs e)
+        {
+            int num2 = int.Parse(txtb_mscal.Text);
+            int result = 0;
+
+            
+
+            txtb_cal.Text = expression + num2.ToString() + "=" + result.ToString();
+            txtb_mscal.Text = result.ToString();
+
+            op = "";
+            expression = "";
+        }
+
+        private void btn_minus_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_times_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_division_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
