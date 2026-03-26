@@ -45,12 +45,31 @@ namespace SimpleCalculator
 
         private void button2_Click(object sender, EventArgs e)
         {
+            txtb_mscal.Text = "0";
+            txtb_cal.Text = "";
 
+            num1 = 0;
+            op = "";
+            expression = "";
+            isNewNumber = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (txtb_mscal.Text.Length > 1)
+            {
+                txtb_mscal.Text =
+                    txtb_mscal.Text.Substring(0, txtb_mscal.Text.Length - 1);
+            }
+            else
+            {
+                txtb_mscal.Text = "0";
+            }
 
+            if (string.IsNullOrEmpty(op))
+                txtb_cal.Text = txtb_mscal.Text;
+            else
+                txtb_cal.Text = expression + txtb_mscal.Text;
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -136,6 +155,21 @@ namespace SimpleCalculator
             txtb_cal.Text = expression;
 
             isNewNumber = true;
+        }
+
+        private void btn_CE_Click(object sender, EventArgs e)
+        {
+            txtb_mscal.Text = "0";
+
+            if (string.IsNullOrEmpty(op))
+                txtb_cal.Text = "0";
+            else
+                txtb_cal.Text = expression;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
